@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENA SALUD - Solicitud de Cita (Final)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Estilos Generales y Reset */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa; /* Fondo suave */
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra elegante */
+        }
+
+        /* --- 1. Cabecera (Header) Mejorada --- */
+        .header {
+            background-color: #fff;
+            padding: 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a4d8c; /* Azul corporativo */
+        }
+
+        .nav-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-input, .select-input {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        /* --- 2. Información del Usuario y Título --- */
+        .top-bar-info {
+            display: flex;
+            justify-content: flex-end; /* Alinea usuario a la derecha */
+            align-items: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .user-info {
+            margin-right: 20px;
+        }
+
+        .cerrar-sesion {
+            color: #cc3333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link {
+            display: block;
+            color: #1a4d8c;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            text-align: left;
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* --- 3. Formulario (Mejor Distribución) --- */
+        .appointment-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas principales */
+            gap: 20px 40px; /* Espacio vertical y horizontal */
+        }
+
+        .form-group-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
+        }
+
+        .form-group-item label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .input-modern {
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        .input-modern:focus {
+            border-color: #1a4d8c;
+            outline: none;
+        }
+
+        /* Estilos específicos para campos cortos (Fecha/Hora) */
+        .input-group-short {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .input-group-short input {
+            flex-grow: 1;
+        }
+
+        .icon-adornment {
+            color: #888;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+
+        /* --- 4. Botón de Enviar (Moderno y Destacado) --- */
+        .submit-button {
+            grid-column: 1 / -1; /* Ocupa ambas columnas */
+            width: 250px;
+            padding: 12px 20px;
+            margin: 30px auto 10px auto;
+            background-color: #1a4d8c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #0f3059;
+        }
+
+        /* Responsividad */
+        @media (max-width: 650px) {
+            .appointment-form {
+                grid-template-columns: 1fr; /* Una sola columna en móvil */
+                gap: 20px;
+            }
+            .header-content, .top-bar-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-container {
+                width: 100%;
+                margin-top: 10px;
+            }
+            .search-input, .select-input {
+                flex-grow: 1;
+            }
+            .submit-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <span class="logo-text">SENA SALUD</span>
+            <div class="nav-container">
+                <input type="text" placeholder="Buscar..." class="search-input">
+                <select class="select-input">
+                    <option>Idioma</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="top-bar-info">
+             <div class="user-info">
+                <span>Paciente: **Pepito Pérez**</span>
+                <a href="#" class="cerrar-sesion">Cerrar sesión</a>
+            </div>
+            <a href="#" class="back-link">← Atrás</a>
+        </div>
+
+        <h1 class="main-title">SOLICITUD DE CITA MÉDICA</h1>
+
+        <form>
+            <div class="appointment-form">
+                
+                <div class="form-group-item">
+                    <label for="especialidad">Especialidad</label>
+                    <select id="especialidad" class="input-modern">
+                        <option>Medicina general</option>
+                        <option>Cardiología</option>
+                        <option>Pediatría</option>
+                    </select>
+                </div>
+                
+                <div class="form-group-item">
+                    <label for="motivo">Motivo de la Cita</label>
+                    <input type="text" id="motivo" class="input-modern" placeholder="Breve descripción">
+                </div>
+
+                <div class="form-group-item">
+                    <label for="medico">Médico</label>
+                    <select id="medico" class="input-modern">
+                        <option>Seleccione un médico</option>
+                        <option>Dra. Ana García</option>
+                        <option>Dr. Juan López</option>
+                    </select>
+                </div>
+
+                <div class="form-group-item">
+                    <label for="tipo_consulta">Tipo de Consulta</label>
+                    <select id="tipo_consulta" class="input-modern">
+                        <option>Presencial</option>
+                        <option>Telemedicina</option>
+                    </select>
+                </div>
+                
+                <div class="form-group-item">
+                    <label for="fecha">Fecha</label>
+                    <div class="input-group-short">
+                        <input type="date" id="fecha" class="input-modern">
+                        <i class="fas fa-calendar-alt icon-adornment"></i>
+                    </div>
+                </div>
+
+                <div class="form-group-item">
+                    <label for="hora">Hora Preferida</label>
+                    <div class="input-group-short">
+                        <input type="time" id="hora" class="input-modern">
+                        <i class="fas fa-clock icon-adornment"></i>
+                    </div>
+                </div>
+
+                <div class="form-group-item">
+                    <label for="sede">Sede/Ubicación</label>
+                    <select id="sede" class="input-modern">
+                        <option>Sede Principal Centro</option>
+                        <option>Consultorio Norte</option>
+                    </select>
+                </div>
+
+                <div class="form-group-item">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" class="input-modern" placeholder="ejemplo@correo.com">
+                </div>
+
+                <button type="submit" class="submit-button">Solicitar Cita</button>
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>
